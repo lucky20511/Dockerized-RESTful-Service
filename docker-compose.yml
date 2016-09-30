@@ -1,0 +1,17 @@
+version: '2'
+services:
+  reset:
+    build: rest/.
+    ports:
+     - "5000:5000"
+    volumes:
+     - .:/hw2
+    links:
+     - db
+  db:  
+    build: db/.
+    volumes:
+      - /var/lib/mysql
+    environment:
+      MYSQL_ROOT_PASSWORD: lucky20511
+      MYSQL_DATABASE: mysql
